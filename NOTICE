@@ -1,0 +1,16 @@
+x402-skale-starter
+Copyright Agentic Tax Solutions LLC (https://agenttax.io)
+
+This product is a fork of PayAINetwork/x402-hono-starter
+(https://github.com/PayAINetwork/x402-hono-starter), licensed under
+the Apache License, Version 2.0. Modifications:
+  - target SKALE Europa mainnet (eip155:324705682) instead of Base/Solana
+  - use DirtRoad's x402 facilitator (https://facilitator.dirtroad.dev)
+  - add US sales tax compliance recording via the AgentTax API
+
+Upstream attribution (preserved from the original starter):
+
+  This package includes portions derived from coinbase/x402
+  (examples/typescript/servers/hono), Apache-2.0, commit
+  6a99ba028b0d657122db8a06328cd432bdd8c7c0. See LICENSE and upstream
+  LICENSE notices.
