@@ -74,9 +74,18 @@ SKALE is gasless. On Base, an x402 transaction costs $0.01–$0.05 in gas per se
 
 Any x402 client that speaks the v2 protocol against `eip155:324705682` will work — see SKALE's [x402 cookbook](https://docs.skale.space/cookbook/x402/accepting-payments) for client examples. An unpaid `GET /paid` returns `402 Payment Required` with a `PAYMENT-REQUIRED` header describing the accepted payment shape.
 
-## Network identifier
+## Network identifiers
 
-SKALE Europa mainnet: `eip155:324705682` (chain ID 324705682). Bridged USDC address: `0x2e08028E3C4c2356572E096d8EF835cD5C6030bD`.
+SKALE Base runs on two chains:
+
+| Network | Chain ID | CAIP-2 | Status |
+|---|---|---|---|
+| SKALE Base Sepolia Testnet | `324705682` | `eip155:324705682` | default — safe for dev / demos |
+| SKALE Base Mainnet | `1187947933` | `eip155:1187947933` | production |
+
+Flip via `SKALE_CHAIN_ID` env var. Docs: <https://docs.skale.space/get-started/quick-start/skale-on-base>.
+
+The default payment token (`0x2e08028E3C4c2356572E096d8EF835cD5C6030bD`) is bridged USDC on Sepolia. Mainnet token addresses are not yet published in SKALE's public docs — when you flip to mainnet, set `PAYMENT_TOKEN_ADDRESS` explicitly (ask the SKALE Builders Chat for the current mainnet token list).
 
 ## License
 

@@ -6,11 +6,17 @@ import { Hono } from "hono";
 import { serve } from "@hono/node-server";
 config();
 
-// SKALE Europa mainnet — gasless EVM chain, chain ID 324705682.
-const SKALE_CHAIN_ID = 324705682;
+// SKALE Base — gasless EVM chains. Configurable via env so the same starter
+// drives Sepolia testnet for dev and mainnet for production.
+//   • SKALE Base Sepolia Testnet: chainId 324705682   (default — safe to demo)
+//   • SKALE Base Mainnet:         chainId 1187947933  (production)
+// Reference: https://docs.skale.space/get-started/quick-start/skale-on-base
+const SKALE_CHAIN_ID = Number(process.env.SKALE_CHAIN_ID || 324705682);
 const SKALE_NETWORK = `eip155:${SKALE_CHAIN_ID}` as const;
 
-// SKALE-bridged USDC (6 decimals). Override via env if you use a different token.
+// SKALE Base Sepolia bridged USDC, 6 decimals. Override via PAYMENT_TOKEN_ADDRESS.
+// Mainnet token addresses are not yet published in SKALE's public docs — set
+// PAYMENT_TOKEN_ADDRESS explicitly when running on mainnet (chain 1187947933).
 const DEFAULT_PAYMENT_TOKEN = "0x2e08028E3C4c2356572E096d8EF835cD5C6030bD";
 
 // DirtRoad runs the x402 facilitator for SKALE. Override via FACILITATOR_URL.
